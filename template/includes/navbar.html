@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Add Music</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100">
-<!-- Navbar -->
-<nav class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ">
+<nav class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 flex-container ">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
             <div class="flex items-center">
@@ -22,9 +12,10 @@
                 <div class="ml-4 flex items-center md:ml-6">
                     <a href="{% url "info" %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
                     <a href="{% url "add" %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Add Music</a>
-{#                    <a href="{% url "delete" music_id %} class="text-white px-3 py-2 rounded-md text-sm font-medium">Delete Music</a>#}
-                    {#                    <a href="{% url "info" %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Music#}
-                    {#                        Info</a>#}
+
+                    <a href="{% url "Main" %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Music
+                        Info</a>
+
                 </div>
             </div>
         </div>
@@ -40,6 +31,3 @@
         </div>
     </div>
 </nav>
-
-</body>
-</html>

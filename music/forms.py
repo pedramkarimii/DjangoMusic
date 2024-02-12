@@ -2,7 +2,7 @@ from django import forms
 from .models import Music
 
 
-class MusicForm(forms.ModelForm):
+class MusicForm(forms.Form):
     class Meta:
         model = Music
-        fields = '__all__'
+        fields = ['title', 'artist', 'album', 'genres', 'release_date', 'category']

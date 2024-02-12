@@ -1,3 +1,4 @@
+{% block content %}
 <!-- Content Area -->
 <div class="text-center glyphicon-align-center flex flex-col justify-between bg-gradient-to-r from-cyan-500 to-blue-500 ">
     <div>
@@ -10,6 +11,8 @@
             </div>
             <form id="add-music-form" class="mt-8 space-y-6 " action="" method="post" novalidate>
                 {% csrf_token %}
+                    <a href="{% url "delete"  pk=music.pk %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Delete Music</a>
+
                 <div class="rounded-md shadow-sm -space-y-px">
                     <div>
                         <label for="title" class="sr-only">Title</label>
@@ -67,7 +70,7 @@
             </form>
         </div>
     </div>
-    <footer class="text-center text-gray-500 text-sm mt-8">
-        <p>&copy; 2024 Music App.</p>
-    </footer>
+    {% include "includes/foot.html" %}
 </div>
+
+{% endblock %}

@@ -1,26 +1,29 @@
-{% block  info %}
+{% block content %}
+<div>{% include "Main/Base.html" %}</div>
+    <div class="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% shadow-md p-8 max-w-lg w-full ">
+        <h1 class="text-3xl font-bold mb-6">{{ music.title }}</h1>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-600">
+            <div>
+                <p><span class="font-bold">Artist:</span> {{ music.artist }}</p>
+                <p><span class="font-bold">Album:</span> {{ music.album }}</p>
+                <p><span class="font-bold">Release Date:</span> {{ music.release_date }}</p>
+                <p><span class="font-bold">Genres:</span>
+                    {% for genre in music.genres.all %}
+                        {{ genre.name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                </p>
+            </div>
+            <div>
+                <p><span class="font-bold">Likes:</span> {{ music.likes }}</p>
+                <p><span class="font-bold">Dislikes:</span> {{ music.dislikes }}</p>
+                <p><span class="font-bold">Overall Rating:</span> {{ music.overall_rating }}</p>
+                <p><span class="font-bold">Rating:</span> {{ music.rating }}</p>
+                <p><span class="font-bold">Created At:</span> {{ music.created_at }}</p>
+                <p><span class="font-bold">Modified At:</span> {{ music.modified_at }}</p>
+            </div>
+        </div>
+    </div>
 
-
-<h1>Music Info</h1>
-<p>Title: {{ Music.title }}</p>
-<p>Artist: {{ Music.artist }}</p>
-<p>Album: {{ Music.album }}</p>
-<p>Release Date: {{ Music.release_date }}</p>
-<p>Genres:
-    {% for genre in Music.genres.all %}
-        {{ genre.name }}
-        {% if not forloop.last %}, {% endif %}
-    {% endfor %}
-</p>
-<p>Likes: {{ Music.likes }}</p>
-<p>Dislikes: {{ Music.dislikes }}</p>
-<p>Rating: {{ Music.rating }}</p>
-<p>Overall Rating: {{ Music.overall_rating }}</p>
-<p>Created At: {{ Music.created_at }}</p>
-<p>Modified At: {{ Music.modified_at }}</p>
-<a href={% url "add" %}>Back to Home</a>
-
-{% for music in music_data %}
-            <li>{{ music.title }} - {{ music.artist }}</li>
-        {% endfor %}
+	
 {% endblock %}
+{% include "includes/foot.html" %}
