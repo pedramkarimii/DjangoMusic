@@ -1,10 +1,9 @@
 # music/urls.py
 from django.urls import path
-from . import views
+from .views import MusicAddView, MusicInfoView, MusicDeleteView
+
 urlpatterns = [
-    path('add/', views.add, name="add"),
-    path('delete/<int:music_id>/', views.delete, name="delete"),
-    path('info/', views.info, name="info"),
+    path('add/', MusicAddView.as_view(), name='add'),
+    path('info/', MusicInfoView.as_view(), name='info'),  # Add this line
+    path('delete/<int:pk>/', MusicDeleteView.as_view(), name='delete'),
 ]
-
-

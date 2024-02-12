@@ -20,12 +20,11 @@
             <!-- Navigation Links -->
             <div class="hidden md:block">
                 <div class="ml-4 flex items-center md:ml-6">
-                    <a href="#" class="text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+                    <a href="{% url "info" %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
                     <a href="{% url "add" %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Add Music</a>
-{#                    <a href="{% url  'delete' music.id %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Delete#}
-                        Music</a>
-                    <a href="{% url "info" %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Music
-                        Info</a>
+{#                    <a href="{% url "delete" music_id %} class="text-white px-3 py-2 rounded-md text-sm font-medium">Delete Music</a>#}
+                    {#                    <a href="{% url "info" %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Music#}
+                    {#                        Info</a>#}
                 </div>
             </div>
         </div>
@@ -41,7 +40,6 @@
         </div>
     </div>
 </nav>
-
 
 </body>
 </html>

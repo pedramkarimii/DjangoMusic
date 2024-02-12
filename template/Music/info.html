@@ -1,0 +1,26 @@
+{% block  info %}
+
+
+<h1>Music Info</h1>
+<p>Title: {{ Music.title }}</p>
+<p>Artist: {{ Music.artist }}</p>
+<p>Album: {{ Music.album }}</p>
+<p>Release Date: {{ Music.release_date }}</p>
+<p>Genres:
+    {% for genre in Music.genres.all %}
+        {{ genre.name }}
+        {% if not forloop.last %}, {% endif %}
+    {% endfor %}
+</p>
+<p>Likes: {{ Music.likes }}</p>
+<p>Dislikes: {{ Music.dislikes }}</p>
+<p>Rating: {{ Music.rating }}</p>
+<p>Overall Rating: {{ Music.overall_rating }}</p>
+<p>Created At: {{ Music.created_at }}</p>
+<p>Modified At: {{ Music.modified_at }}</p>
+<a href={% url "add" %}>Back to Home</a>
+
+{% for music in music_data %}
+            <li>{{ music.title }} - {{ music.artist }}</li>
+        {% endfor %}
+{% endblock %}
