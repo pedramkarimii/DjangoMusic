@@ -1,26 +1,34 @@
 {% block content %}
 <div>{% include "Main/Base.html" %}</div>
     <div class="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% shadow-md p-8 max-w-lg w-full ">
-        <h1 class="text-3xl font-bold mb-6">{{ music.title }}</h1>
+        <h1 class="text-3xl font-bold mb-6">{{ form.title }}</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-600">
             <div>
-                <p><span class="font-bold">Artist:</span> {{ music.artist }}</p>
-                <p><span class="font-bold">Album:</span> {{ music.album }}</p>
-                <p><span class="font-bold">Release Date:</span> {{ music.release_date }}</p>
-                <p><span class="font-bold">Genres:</span>
-                    {% for genre in music.genres.all %}
-                        {{ genre.name }}{% if not forloop.last %}, {% endif %}
-                    {% endfor %}
-                </p>
+                {% for song in form %}
+                <p><span class="font-bold">Title:</span> {{ song.title }}</p>
+                <p><span class="font-bold">Artist:</span> {{ song.artist }}</p>
+                <p><span class="font-bold">Album:</span> {{ song.album }}</p>
+                <p><span class="font-bold">category:</span> {{ song.category }}</p>
+                <p><span class="font-bold">Release Date:</span> {{ song.release_date }}</p>
+{#                <p><span class="font-bold">created_at :</span> {{ song.created_at }}</p>#}
+{#                <p><span class="font-bold">modified_at:</span> {{ song.modified_at }}</p>#}
+                    <br><br>
+                {% endfor %}
+
+{#                <p><span class="font-bold">Genres:</span>#}
+{#                    {% for genre in form.genres.all %}#}
+{#                        {{ genre.name }}{% if not forloop.last %}, {% endif %}#}
+{#                    {% endfor %}#}
+{#                </p>#}
             </div>
-            <div>
-                <p><span class="font-bold">Likes:</span> {{ music.likes }}</p>
-                <p><span class="font-bold">Dislikes:</span> {{ music.dislikes }}</p>
-                <p><span class="font-bold">Overall Rating:</span> {{ music.overall_rating }}</p>
-                <p><span class="font-bold">Rating:</span> {{ music.rating }}</p>
-                <p><span class="font-bold">Created At:</span> {{ music.created_at }}</p>
-                <p><span class="font-bold">Modified At:</span> {{ music.modified_at }}</p>
-            </div>
+{#            <div>#}
+{#                <p><span class="font-bold">Likes:</span> {{ form.likes }}</p>#}
+{#                <p><span class="font-bold">Dislikes:</span> {{ form.dislikes }}</p>#}
+{#                <p><span class="font-bold">Overall Rating:</span> {{ form.overall_rating }}</p>#}
+{#                <p><span class="font-bold">Rating:</span> {{ form.rating }}</p>#}
+{#                <p><span class="font-bold">Created At:</span> {{ form.created_at }}</p>#}
+{#                <p><span class="font-bold">Modified At:</span> {{ form.modified_at }}</p>#}
+{#            </div>#}
         </div>
     </div>
 

@@ -7,13 +7,13 @@
                 Add Music
             </h2>
         </div>
-        <form class="mt-8 space-y-6" method="post" novalidate action="" >
+        <form class="mt-8 space-y-6" method="post"  action="" >
 
             {% csrf_token %}
             <div class="rounded-md shadow-sm -space-y-px">
                 <div>
-                    <label for="title" class="sr-only">Title</label>
-                    <input id="title" name="title" type="text" required autocomplete="off"
+                    <label for="id_title" class="sr-only">Title</label>
+                    <input id="id_title" name="title" type="text" required autocomplete="off"
                            class="input-field" placeholder="Title">
                 </div>
                 <div>
@@ -26,11 +26,11 @@
                     <input id="album" name="album" type="text" required autocomplete="off"
                            class="input-field" placeholder="Album">
                 </div>
-                <div>
-                    <label for="genres" class="sr-only">Genres</label>
-                    <input id="genres" name="genres" type="text" required autocomplete="off"
-                           class="input-field" placeholder="Genres">
-                </div>
+{#                <div>#}
+{#                    <label for="genres" class="sr-only">Genres</label>#}
+{#                    <input id="genres" name="genres" type="text" required autocomplete="off"#}
+{#                           class="input-field" placeholder="Genres">#}
+{#                </div>#}
                 <div>
                     <label for="category" class="sr-only">Category</label>
                     <input id="category" name="category" type="text" required autocomplete="off"
@@ -45,9 +45,11 @@
             <div class="flex justify-center space-x-4">
                 <input type="submit" class="button-primary">Add Music>
             </div>
-            <div class="flex justify-center space-x-4">
-                <input type="submit" class="button-primary">Delete Music>
-            </div>
+{#            <a href="{% url "delete" pk %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Music#}
+{#                        Info</a>#}
+{#            <div class="flex justify-center space-x-4">#}
+{#                <input type="submit" class="button-primary">Delete Music>#}
+{#            </div>#}
         </form>
         {% if messages %}
         {% for message in messages %}
@@ -56,19 +58,19 @@
         </div>
         {% endfor %}
         {% endif %}
-        <h1 class="text-3xl font-semibold mb-6">Added Music Details</h1>
-        <div class="max-w-md mx-auto bg-white shadow-md rounded p-8">
-            <p class="text-gray-700"><strong>Title:</strong> {{ music.title }}</p>
-            <p class="text-gray-700"><strong>Artist:</strong> {{ music.artist }}</p>
-            <p class="text-gray-700"><strong>Album:</strong> {{ music.album }}</p>
-            <p class="text-gray-700"><strong>Release Date:</strong> {{ music.release_date }}</p>
-            <p class="text-gray-700"><strong>Genres:</strong>
-                {% for genre in music.genres.all %}
-                {{ genre.name }}{% if not forloop.last %}, {% endif %}
-                {% endfor %}
-
-            </p>
-        </div>
+{#        <h1 class="text-3xl font-semibold mb-6">Added Music Details</h1>#}
+{#        <div class="max-w-md mx-auto bg-white shadow-md rounded p-8">#}
+{#            <p class="text-gray-700"><strong>Title:</strong> {{ form.title }}</p>#}
+{#            <p class="text-gray-700"><strong>Artist:</strong> {{ form.artist }}</p>#}
+{#            <p class="text-gray-700"><strong>Album:</strong> {{ form.album }}</p>#}
+{#            <p class="text-gray-700"><strong>Release Date:</strong> {{ form.release_date }}</p>#}
+{#            <p class="text-gray-700"><strong>Genres:</strong>#}
+{#                {% for genre in form.genres.all %}#}
+{#                {{ genre.name }}{% if not forloop.last %}, {% endif %}#}
+{#                {% endfor %}#}
+{##}
+{#            </p>#}
+{#        </div>#}
     </div>
     <a href="{% url "info" %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
     {% include "includes/foot.html" %}
