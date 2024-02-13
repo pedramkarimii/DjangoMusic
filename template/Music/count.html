@@ -1,28 +1,41 @@
 {% block content %}
-<div class="container mx-auto p-4">
-    {% include "Main/Base.html" %}
-    <div class="bg-gradient-to-r from-indigo-500  shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <h1 class="text-3xl mb-4">Music Counts</h1>
-        <div class="grid grid-cols-2 gap-4">
-            <div class="flex items-center">
-                <p class="font-bold mr-2">Artists:</p>
-                <p>{{ artist_count }}</p>
-            </div>
-            <div class="flex items-center">
-                <p class="font-bold mr-2">Albums:</p>
-                <p>{{ album_count }}</p>
-            </div>
-            <div class="flex items-center">
-                <p class="font-bold mr-2">Genres:</p>
-                <p>{{ genre_count }}</p>
-            </div>
-            <div class="flex items-center">
-                <p class="font-bold mr-2">Music:</p>
-                <p>{{ music_count }}</p>
+    <div class="">
+        {% include "Main/Base.html" %}
+        <div class="bg-gradient-to-r from-indigo-500  shadow-md px-8 pt-6 pb-8 mb-4">
+            <h1 class="text-5xl mb-4 ">Music Counts</h1>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="flex items-center">
+                    <p class="font-bold mr-2">Title:</p>
+                    <ul>{% for title_count in title_counts %}
+                        <li><u>{{ title_count.title }} </u>:<b> {{ title_count.count }}</li> </b>
+                    {% endfor %}</ul>
+                    <br><br><br><br><br>
+                </div>
+                <div class="flex items-center">
+                    <p class="font-bold mr-2 ">Artists:</p>
+                    <ul>{% for artist_count in artist_counts %}
+                        <li><u>{{ artist_count.artist }} </u>:<b> {{ artist_count.count }}</li> </b>
+                    {% endfor %}</ul>
+                </div>
+                <div class="flex items-center">
+                    <p class="font-bold mr-2">Album:</p>
+                    <ul>{% for album_count in album_counts %}
+                        <li><u>{{ album_count.album }}</u>:<b> {{ album_count.count }}</b>
+                        <li>
+                    {% endfor %}</ul>
+                </div>
+                <div class="flex items-center">
+                    <p class="font-bold mr-2">Category:</p>
+                    <ul>{% for category_count in category_counts %}
+                        <li><u>{{ category_count.category }} </u>:<b> {{ category_count.count }}</li> </b>
+                    {% endfor %}</ul>
+                </div>
             </div>
         </div>
+
     </div>
-    {% include "includes/foot.html" %}
-</div>
+
 
 {% endblock %}
+
+{% include "includes/foot.html" %}

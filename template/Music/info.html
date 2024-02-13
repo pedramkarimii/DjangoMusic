@@ -1,37 +1,31 @@
 {% block content %}
+
 <div>{% include "Main/Base.html" %}</div>
-    <div class="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% shadow-md p-8 max-w-lg w-full ">
-        <h1 class="text-3xl font-bold mb-6">{{ form.title }}</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-gray-600">
-            <div>
-                {% for song in form %}
-                <p><span class="font-bold">Title:</span> {{ song.title }}</p>
-                <p><span class="font-bold">Artist:</span> {{ song.artist }}</p>
-                <p><span class="font-bold">Album:</span> {{ song.album }}</p>
-                <p><span class="font-bold">category:</span> {{ song.category }}</p>
-                <p><span class="font-bold">Release Date:</span> {{ song.release_date }}</p>
-{#                <p><span class="font-bold">created_at :</span> {{ song.created_at }}</p>#}
-{#                <p><span class="font-bold">modified_at:</span> {{ song.modified_at }}</p>#}
-                    <br><br>
-                {% endfor %}
+<div class="bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% text-center flex flex-col justify-between ">
+    {% for song in form %}
+    <h1 class="text-3xl font-bold mb-6">{{ song.title }}</h1>
+    <div class="text-gray-800">
+        <div>
+            <p><span class="font-bold">Title:</span> {{ song.title }}</p>
+            <p><span class="font-bold">Artist:</span> {{ song.artist }}</p>
+            <p><span class="font-bold">Album:</span> {{ song.album }}</p>
+            <p><span class="font-bold">category:</span> {{ song.category }}</p>
+            <p><span class="font-bold">Release Date:</span> {{ song.release_date }}</p>
+            <p><span class="font-bold">created at :</span> {{ song.created_at }}</p>
+            <p><span class="font-bold">modified at:</span> {{ song.modified_at }}</p>
+            <p><span class="font-bold">ID :</span> {{ song.id }}</p>
+            <br>
 
-{#                <p><span class="font-bold">Genres:</span>#}
-{#                    {% for genre in form.genres.all %}#}
-{#                        {{ genre.name }}{% if not forloop.last %}, {% endif %}#}
-{#                    {% endfor %}#}
-{#                </p>#}
-            </div>
-{#            <div>#}
-{#                <p><span class="font-bold">Likes:</span> {{ form.likes }}</p>#}
-{#                <p><span class="font-bold">Dislikes:</span> {{ form.dislikes }}</p>#}
-{#                <p><span class="font-bold">Overall Rating:</span> {{ form.overall_rating }}</p>#}
-{#                <p><span class="font-bold">Rating:</span> {{ form.rating }}</p>#}
-{#                <p><span class="font-bold">Created At:</span> {{ form.created_at }}</p>#}
-{#                <p><span class="font-bold">Modified At:</span> {{ form.modified_at }}</p>#}
-{#            </div>#}
+            <a href="{% url 'delete' song.id %}"
+               class="bg-red-400 text-white px-4 py-2 rounded hover:bg-red-700">Delete with ID</a>
+
+            <br><br><br><br>
+
         </div>
+        {% endfor %}
     </div>
+</div>
 
-	
+
 {% endblock %}
 {% include "includes/foot.html" %}

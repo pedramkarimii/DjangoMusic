@@ -4,42 +4,42 @@ from django.db import models
 from django.utils import timezone
 
 
-class Artist(models.Model):
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
-
-
-class Album(models.Model):
-    title = models.CharField(max_length=100)
-    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='albums_artist')
-    release_date = models.DateField()
-
-    def __str__(self):
-        return self.title
-
-
-class Genre(models.Model):
-    name = models.CharField(max_length=100)
-
-    def __str__(self):
-        return self.name
+# class Artist(models.Model):
+#     name = models.CharField(max_length=100)
+#
+#     def __str__(self):
+#         return self.name
+#
+#
+# class Album(models.Model):
+#     title = models.CharField(max_length=100)
+#     artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='albums_artist')
+#     release_date = models.DateField()
+#
+#     def __str__(self):
+#         return self.title
+#
+#
+# class Genre(models.Model):
+#     name = models.CharField(max_length=100)
+#
+#     def __str__(self):
+#         return self.name
 
 
 class Music(models.Model):
-    title = models.CharField(max_length=100)
-    artist = models.ForeignKey(Artist, on_delete=models.CASCADE, related_name='musics_artist')
-    album = models.ForeignKey(Album, on_delete=models.CASCADE, related_name='musics_album')
+    title = models.CharField(max_length=200)
+    artist = models.CharField(max_length=200)
+    album = models.CharField(max_length=200)
     release_date = models.DateField()
-    genres = models.ManyToManyField(Genre)
+    # genre = models.CharField(max_length=200)
     category = models.CharField(max_length=200)
     # category = models.ImageField(upload_to='mus
     # ic_category')
     # likes = models.PositiveIntegerField(default=0)
     # dislikes = models.PositiveIntegerField(default=0)
     # rating = models.IntegerField(default=50, validators=[MinValueValidator(0), MaxValueValidator(100)])
-    created_at = models.DateTimeField(default=timezone.now, editable=False)
+    created_at = models.DateTimeField(default=timezone.now)
     modified_at = models.DateTimeField(auto_now=True)
 
     # @property

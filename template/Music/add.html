@@ -1,14 +1,23 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Music</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+{% include "includes/navbar.html" %}
+{% include "Main/messages.html" %}
 <!-- Content Area -->
-<div class=" text-center flex flex-col justify-between">
+<div class=" bg-gradient-to-r from-indigo-500 from-10% via-sky-500 via-30% to-emerald-500 to-90% text-center flex flex-col justify-between">
     <div class="max-w-md mx-auto space-y-8">
         <div>
             <h2 class="mt-6 text-3xl font-extrabold text-gray-900">
                 Add Music
             </h2>
         </div>
-        <form class="mt-8 space-y-6" method="post"  action="" >
-
+        <form class="mt-8 space-y-6" method="post" action="">
             {% csrf_token %}
             <div class="rounded-md shadow-sm -space-y-px">
                 <div>
@@ -26,11 +35,6 @@
                     <input id="album" name="album" type="text" required autocomplete="off"
                            class="input-field" placeholder="Album">
                 </div>
-{#                <div>#}
-{#                    <label for="genres" class="sr-only">Genres</label>#}
-{#                    <input id="genres" name="genres" type="text" required autocomplete="off"#}
-{#                           class="input-field" placeholder="Genres">#}
-{#                </div>#}
                 <div>
                     <label for="category" class="sr-only">Category</label>
                     <input id="category" name="category" type="text" required autocomplete="off"
@@ -43,36 +47,19 @@
                 </div>
             </div>
             <div class="flex justify-center space-x-4">
-                <input type="submit" class="button-primary">Add Music>
+                <input type="submit" class="button-primary" value="Add Music">
             </div>
-{#            <a href="{% url "delete" pk %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Music#}
-{#                        Info</a>#}
-{#            <div class="flex justify-center space-x-4">#}
-{#                <input type="submit" class="button-primary">Delete Music>#}
-{#            </div>#}
         </form>
-        {% if messages %}
-        {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-            {{ message }}
-        </div>
-        {% endfor %}
-        {% endif %}
-{#        <h1 class="text-3xl font-semibold mb-6">Added Music Details</h1>#}
-{#        <div class="max-w-md mx-auto bg-white shadow-md rounded p-8">#}
-{#            <p class="text-gray-700"><strong>Title:</strong> {{ form.title }}</p>#}
-{#            <p class="text-gray-700"><strong>Artist:</strong> {{ form.artist }}</p>#}
-{#            <p class="text-gray-700"><strong>Album:</strong> {{ form.album }}</p>#}
-{#            <p class="text-gray-700"><strong>Release Date:</strong> {{ form.release_date }}</p>#}
-{#            <p class="text-gray-700"><strong>Genres:</strong>#}
-{#                {% for genre in form.genres.all %}#}
-{#                {{ genre.name }}{% if not forloop.last %}, {% endif %}#}
-{#                {% endfor %}#}
-{##}
-{#            </p>#}
-{#        </div>#}
+{#        {% if messages %}#}
+{#            {% for message in messages %}#}
+{#                <div class="alert alert-{{ message.tags }}">#}
+{#                    {{ message }}#}
+{#                </div>#}
+{#            {% endfor %}#}
+{#        {% endif %}#}
     </div>
     <a href="{% url "info" %}" class="text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-    {% include "includes/foot.html" %}
 </div>
-
+{% include "includes/foot.html" %}
+</body>
+</html>
